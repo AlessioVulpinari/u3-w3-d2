@@ -31,14 +31,14 @@ const fetchJobReducer = (state = initialState, action) => {
       return {
         ...state,
         hasError: true,
-        errorMessage: action.payload,
+        errorMsg: action.payload,
       }
 
     case GET_JOBS_ERROR_OFF:
       return {
         ...state,
         hasError: false,
-        errorMessage: "",
+        errorMsg: "",
       }
 
     default:
