@@ -2,7 +2,7 @@ import { GET_JOBS, GET_JOBS_ERROR_OFF, GET_JOBS_ERROR_ON, GET_JOBS_LOADING_OFF, 
 
 const initialState = {
   content: [],
-  isLoading: true,
+  isLoading: false,
   hasError: false,
   errorMsg: "",
 }

@@ -1,5 +1,5 @@
 import { useEffect } from "react"
-import { Container, Row, Col, Alert, Spinner } from "react-bootstrap"
+import { Container, Row, Col, Alert, Spinner, Placeholder } from "react-bootstrap"
 import Job from "./Job"
 import { useParams } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
@@ -27,9 +27,14 @@ const CompanySearchResults = () => {
             <p>{errorMsg}</p>
           </Alert>
         ) : isLoading ? (
-          <div className='d-flex my-3 justify-content-center'>
-            <Spinner animation='border' variant='primary' />
-          </div>
+          <Row className='mx-0 mt-3 p-3' style={{ border: "1px solid #00000033", borderRadius: 4 }}>
+            <Placeholder as={Col} animation='glow'>
+              <Placeholder xs={3}></Placeholder>
+            </Placeholder>
+            <Placeholder as={Col} animation='glow'>
+              <Placeholder xs={9}></Placeholder>
+            </Placeholder>
+          </Row>
         ) : (
           <Col className='my-3'>
             <h1 className='display-4'>Job posting for: {params.company}</h1>
