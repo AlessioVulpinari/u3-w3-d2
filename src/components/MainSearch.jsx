@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Container, Row, Col, Form, Alert, Spinner } from "react-bootstrap"
+import { Container, Row, Col, Form, Alert, Spinner, Placeholder } from "react-bootstrap"
 import Job from "./Job"
 import { useDispatch, useSelector } from "react-redux"
 import { getJobsAction } from "../redux/actions"
@@ -43,9 +43,14 @@ const MainSearch = () => {
             </Alert>
           )}
           {isLoading ? (
-            <div className='d-flex my-3 justify-content-center'>
-              <Spinner animation='border' variant='primary' />
-            </div>
+            <Row className='mx-0 mt-3 p-3' style={{ border: "1px solid #00000033", borderRadius: 4 }}>
+              <Placeholder as={Col} animation='glow'>
+                <Placeholder xs={3}></Placeholder>
+              </Placeholder>
+              <Placeholder as={Col} animation='glow'>
+                <Placeholder xs={9}></Placeholder>
+              </Placeholder>
+            </Row>
           ) : (
             jobs.data && jobs.data.map((jobData) => <Job key={jobData._id} data={jobData} />)
           )}
