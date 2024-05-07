@@ -1,6 +1,7 @@
 import { Row, Col } from "react-bootstrap"
 import { Link } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
+import { addFromFavourites, removeFromFavourites } from "../redux/actions"
 
 const Job = ({ data }) => {
   const favourites = useSelector((state) => state.favourites.content)
@@ -17,12 +18,9 @@ const Job = ({ data }) => {
             {data.title}
           </a>
           {favourites && favourites.includes(data.company_name) ? (
-            <i
-              className='bi bi-star-fill'
-              onClick={() => dispatch({ type: "REMOVE_FROM_FAVOURITES", payload: data.company_name })}
-            />
+            <i className='bi bi-star-fill' onClick={() => dispatch(removeFromFavourites(data.company_name))} />
           ) : (
-            <i className='bi bi-star' onClick={() => dispatch({ type: "ADD_TO_FAVOURITES", payload: data.company_name })} />
+            <i className='bi bi-star' onClick={() => dispatch(addFromFavourites(data.company_name))} />
           )}
         </div>
       </Col>
